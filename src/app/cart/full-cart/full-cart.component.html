@@ -1,0 +1,160 @@
+
+  <div dir="rtl" class="card" *ngIf="!empty">
+    <div class="container">
+      <h4 class="card-title pt-4">كل الطلبات</h4>
+      <div class="d-flex justify-content-between">
+        <p class="card-description">العدد الكلي: {{ cartGoods.items.length }}</p>
+        <button mat-flat-button class="delete-all" (click)="deleteAll()">مسح الكل</button>
+      </div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>الاسم</th>
+
+              <th></th>
+              <th>تكلفة المنتج</th>
+              <th>التكلفة الكلية</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of cartGoods.items; let index = index">
+              <td><img [src]="item.imageUrl" alt="" /></td>
+              <td>{{ item.title }}</td>
+              <td>
+                <div class="amount center-flex">
+                  <div type="button" class="center-flex btn-success" (click)="plus(item)">
+                    <!-- <mat-icon>add</mat-icon> -->
+
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+
+                  </div>
+                  <div class="center-flex">{{ item.quantity }}</div>
+                  <div type="button" class="center-flex" (click)="minus(item)">
+                    <!-- <mat-icon>remove</mat-icon> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M19 13H5v-2h14v2z"/></svg>
+                  </div>
+                </div>
+              </td>
+              <td>{{ item.amount | currency : "EGP" }}</td>
+              <td>{{ item.amount * item.quantity | currency : "EGP" }}</td>
+
+              <td>
+                <div
+                  type="button"
+                  class="clear center-flex"
+                  (click)="deleteItem(item)"
+                >
+                  <!-- <mat-icon>delete_outline</mat-icon> -->
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M16 9v10H8V9h8m-1.5-6h-5l-1 1H5v2h14V4h-3.5l-1-1zM18 7H6v12c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7z"/></svg>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- *************** -->
+      <div class="mb-3 fs-5">
+        الاجمالي :
+
+        {{ getTotalCount(cartGoods.items) | currency : "EGP" }}
+      <h5>
+        الاجمالي شامل الفاتورة بالاضافة الي  {{deliveryPrice |currency:'EGP'}} دليفري
+        <svg class="car" xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48"><path d="M224.118 895Q175 895 140.5 860.583 106 826.167 106 777H40V316q0-24 18-42t42-18h579v167h105l136 181v173h-71q0 49.167-34.382 83.583Q780.235 895 731.118 895 682 895 647.5 860.583 613 826.167 613 777H342q0 49-34.382 83.5-34.383 34.5-83.5 34.5ZM224 835q24 0 41-17t17-41q0-24-17-41t-41-17q-24 0-41 17t-17 41q0 24 17 41t41 17ZM100 717h22q17-27 43.041-43 26.041-16 58-16t58.459 16.5Q308 691 325 717h294V316H100v401Zm631 118q24 0 41-17t17-41q0-24-17-41t-41-17q-24 0-41 17t-17 41q0 24 17 41t41 17Zm-52-204h186L754 483h-75v148ZM360 527Z"/></svg>
+        </h5>
+
+      </div>
+
+
+    <form #orderForm="ngForm" (ngSubmit)="orderTime(orderForm)">
+
+      <div class="mb-3">
+        <label for="nameInput" class="form-label">الاسم*:</label>
+        <input
+          type="text"
+          name="firstN"
+          ngModel
+          #firstN="ngModel"
+          class="form-control"
+          [class.invalid-input]="firstN.invalid && (firstN.dirty || firstN.touched)"
+          id="nameInput"
+          placeholder="الاسم"
+          required
+        />
+        <div *ngIf="firstN.invalid && (firstN.dirty || firstN.touched)" class="text-danger">
+          <div *ngIf="firstN.errors?.['required']"> الاسم</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="numberInput" class="form-label">رقم التليفون*:</label>
+        <input
+          type="text"
+          name="phoneN"
+          ngModel
+          #phoneN="ngModel"
+          class="form-control"
+          [class.invalid-input]="phoneN.invalid && (phoneN.dirty || phoneN.touched)"
+          id="numberInput"
+
+          placeholder="رقم التليفون"
+          required
+          pattern="^01[0125][0-9]{8}$"
+        />
+        <div *ngIf="phoneN.invalid && (phoneN.dirty || phoneN.touched)" class="text-danger">
+          <div *ngIf="phoneN.errors?.['required']">رقم التليفون</div>
+          <div *ngIf="phoneN.errors?.['pattern']">رقم التليفون يجب أن يحتوي على 11 رقم ويبدأ بـ 010 أو 011 أو 012 أو 015</div>
+
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="addressInput" class="form-label">العنوان*:</label>
+        <input
+          type="text"
+          name="address"
+          ngModel
+          #address="ngModel"
+          class="form-control"
+          [class.invalid-input]="address.invalid && (address.dirty || address.touched)"
+          id="addressInput"
+          placeholder="العنوان"
+          required
+        />
+        <div *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger">
+          <div *ngIf="address.errors?.['required']">العنوان </div>
+        </div>
+      </div>
+
+      <!-- <div class="mb-3">
+        <label for="addressInput" class="form-label">ملاحظات</label>
+        <textarea
+
+
+          ngModel
+          #address="ngModel"
+          class="form-control"
+          [class.invalid-input]="address.invalid && (address.dirty || address.touched)"
+          id="addressInput"
+          placeholder="هل هناك اي ملاحظات"
+          required
+        ></textarea>
+        <div *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger">
+          <div *ngIf="address.errors?.['required']">العنوان </div>
+        </div>
+      </div> -->
+
+      <button type="submit" [disabled]="!orderForm.valid" class="submit btn btn-success ">اطلب الآن</button>
+    </form>
+
+
+
+  </div>
+
+</div>
+
+
+<app-emp-cart *ngIf="empty"></app-emp-cart>

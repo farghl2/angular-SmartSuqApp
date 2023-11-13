@@ -1,0 +1,14 @@
+<div class="carousel-container">
+  <div class="carousel">
+    <button mat-icon-button class="nav-button prev" (click)="prevSlide()">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </button>
+    <div class="slide" *ngFor="let slide of slides; let i = index" [ngStyle]="{'transform': 'translateX(' + (-i * 100) + '%)'}">
+      <img [src]="currentImage" alt="Slide {{ i + 1 }}" class="slide-image">
+
+    </div>
+    <button mat-icon-button class="nav-button next" (click)="nextSlide()">
+      <mat-icon >keyboard_arrow_right</mat-icon>
+    </button>
+  </div>
+</div>

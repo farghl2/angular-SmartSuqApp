@@ -1,0 +1,44 @@
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+app-card {
+    /* transition: .3s; */
+    max-height: 327.6px;
+
+}
+
+app-card:hover {
+    transform: scale(1.01);
+}
+
+@media (max-width:768px) {
+    .card-list {
+        margin-bottom: 4.0625rem;
+    }
+
+}
+
+
+@media (max-width:319px) {
+    app-card{
+        width: 100%;
+        margin-top:0.625rem;
+    }
+
+}
+
+.form-control::placeholder  {
+    font-family: FontAwesome;
+  }
+
+  .form-control:focus {
+    box-shadow: none;
+    border-color: var(--main-color);
+  }
+
+  .btn-color{
+    background-color:#198754!important;
+    color: white !important;
+  }

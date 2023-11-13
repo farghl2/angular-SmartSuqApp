@@ -1,0 +1,21 @@
+<ul class="bottom-bar row fixed-bottom text-center">
+    <li class="col-4" routerLink="sections" routerLinkActive="active">
+        <mat-icon>apps</mat-icon>
+        الاقسام
+    </li>
+    <li class="col-4" routerLink="/home" routerLinkActive="active">
+        <mat-icon
+              aria-hidden="false"
+              aria-label="Example home icon"
+              fontIcon="home"
+            ></mat-icon>
+        الرئيسية
+    </li>
+    <li class="col-4" routerLink="/cart" routerLinkActive="active">
+        <mat-icon [matBadge]="count" matBadgeColor="warn"  [matBadgeHidden]="!more_1">shopping_cart</mat-icon>
+        <!-- <mat-icon>
+
+            shopping_cart</mat-icon> -->
+        العربة
+    </li>
+</ul>

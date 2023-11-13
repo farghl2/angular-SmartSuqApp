@@ -1,0 +1,41 @@
+<div class="row" dir="rtl">
+  <div class="search-hero mb-2 col-12 col-xl-6 col-md-6" >
+    <input class="form-control text-center" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442; ابحث عن {{search}}">
+  </div>
+  </div>
+
+<div *ngIf="!clickItem" class="w-100">
+  <ul class=" row text-center " *ngIf="!loading">
+    <app-section-card
+      class="col-12 col-md-6 col-lg-6 col-xl-4 col-xxl-4"
+      *ngFor="let item of sortCategories | filter: searchText"
+      [item]="item"
+      (click)="getItem(item)"
+      type="button"
+
+
+
+    ></app-section-card>
+  </ul>
+</div>
+
+
+<button class="back  col-6 mb-1" mat-mini-fab (click)="goToSections()" *ngIf="clickItem"><mat-icon>arrow_back</mat-icon></button>
+
+<ul class="card-list d-flex flex-wrap text-center" *ngIf="clickItem">
+  <ng-container *ngFor="let item of goods | filter: searchText">
+  <app-card
+    class="col-6 col-md-4 col-lg-3 col-xl-2"
+
+    [data]="item"
+    (item)="addToCart($event)"
+
+  ></app-card>
+
+  </ng-container>
+</ul>
+
+
+<div class="c-spinner hghit-100 w-100 text-center" *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>

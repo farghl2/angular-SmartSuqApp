@@ -1,0 +1,71 @@
+<!--
+<li class="card text-center "
+
+>
+
+  <div class="content" >
+  <img  [src]="data.imageUrl" [alt]="data.title"/>
+  </div>
+
+  <div class="card-body pb-0" dir="rtl">
+    <h4 class="card-title">{{data.title}}</h4>
+    <h5 class="h5" *ngIf="data.exitsing">{{ data.amount | currency:'EGP' }}</h5>
+    <h5 *ngIf="!data.exitsing" class="h5-warn fs-6">غيرمتوفر حاليا"</h5>
+    <button *ngIf="!added" class=" btn btn-success mb-2-5 w-100" (click)="addItem(data)" [disabled]="!data.exitsing">
+ <mat-icon>add_shopping_cart</mat-icon>
+      اضف للعربة
+
+
+    </button>
+
+    <div *ngIf="added" class="added-btn d-flex justify-content-around align-items-center mb-0 ">
+      <button mat-icon-button class="success-btn" (click)="addItem(data)">
+
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+      <h3 class=" fs-5">{{itemQuantity}}</h3>
+      <button mat-icon-button color="warn" (click)="removeItem(data)">
+
+        <mat-icon>remove_shopping_cart</mat-icon>
+      </button>
+
+
+    </div>
+
+  </div>
+</li>
+ -->
+
+
+ <li class="card text-center section-card ">
+  <div class="content">
+    <img [src]="data.imageUrl" [alt]="data.title" class="card-img-top" />
+  </div>
+
+  <div class="card-body pb-0" dir="rtl">
+    <h4 class="card-title">{{data.title}}</h4>
+    <h5 class="h5" *ngIf="data.exitsing">{{ data.amount | currency:'EGP' }}</h5>
+     <!-- <h5 class="h5" >{{ data.amount | currency:'EGP' }}</h5>  -->
+     <h5 *ngIf="!data.exitsing" class="h5-warn fs-6">غير متوفر حاليا</h5>
+
+     <button
+      *ngIf="!added"
+      class="btn btn-success mb-2-5 w-100 section-card-button"
+      (click)="addItem(data)"
+      [disabled]="!data.exitsing"
+    >
+      <mat-icon>add_shopping_cart</mat-icon>
+      اضف للعربة
+    </button>
+
+     <div *ngIf="added" class="added-btn d-flex justify-content-around align-items-center mb-0">
+      <button mat-icon-button class="success-btn" (click)="addItem(data)">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+      <h3 class="fs-5">{{itemQuantity}}</h3>
+      <button mat-icon-button color="warn" (click)="removeItem(data)">
+        <mat-icon>remove_shopping_cart</mat-icon>
+      </button>
+    </div>
+  </div>
+</li>

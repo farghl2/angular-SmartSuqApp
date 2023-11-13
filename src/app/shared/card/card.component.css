@@ -1,0 +1,138 @@
+
+
+.content {
+     display: flex !important;
+     align-items: center !important;
+     justify-content: center !important;
+     width:6.25rem;
+     height: 6.25rem;
+     margin: .6rem auto;
+
+}
+
+.content img {
+     width: 100%;
+     max-height: 100%;
+}
+
+
+.btn {
+     display: flex;
+     align-items: center;
+     justify-content: space-evenly;
+     background-color: var(--main-color);
+     border-color: var(--main-color);
+     transition: .5s;
+
+}
+
+.mb-2-5 {
+  margin-bottom: 1.5rem !important;
+
+}
+
+
+
+.h5 {
+     font-size: 1.1rem;
+     /* font-size: 1.5rem; */
+     color: var(--main-color);
+}
+
+.h5-warn{
+  color: red;
+}
+
+.success-btn {
+ color: #198754;
+}
+
+.added-btn {
+  padding: -5px;
+}
+
+.card-title {
+     height: 55px !important;
+     /* color: var(--main-color); */
+
+}
+
+@media (width:320px) {
+     .card-title {
+          height: 80px !important;
+     }
+
+}
+
+.section-card {
+  border: none;
+  border-radius: 10px;
+  background-color: #ffffff;
+  /* box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); */
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+
+  transition: transform 0.3s;
+  width: 100%;
+  max-width: 300px; /* Adjust the max width as needed */
+  margin: 4px;
+  cursor: pointer;
+}
+
+.section-card:hover {
+  transform: translateY(-5px);
+}
+
+.section-card-body {
+  padding: 0;
+}
+
+.section-card-title {
+  margin: 0;
+  font-size: 18px;
+}
+
+.section-card-image {
+  width: 60px; /* Adjust the size as needed */
+  height: 60px; /* Adjust the size as needed */
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-card-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+
+@media (min-width: 425px) {
+
+
+
+.section-card-button {
+  font-size: 16px;
+  padding: 8px 16px;
+}
+}
+
+.added-btn {
+  background-color: #f0f0f0;
+  padding: 8px;
+  border-radius: 10px;
+}
+
+.success-btn,
+.warning-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+}
+
+.h5-warn {
+  color: #f00;
+}

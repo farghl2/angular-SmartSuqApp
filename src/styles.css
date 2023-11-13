@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+     --main-color:#FFC533;
+    --second-color:hsl(55, 80%, 88%, 30%);
+    /* --main-color:#F84B30; */
+    /* --second-color:hsl(55, 80%, 88%, 30%); */
+}
+html, body {min-height: 100%;}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.c-spinner {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    border-radius: 6px !important;
+}
+
+
+.center-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (min-width: 500px ) {
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.825rem;
+}
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 0.188rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-color );
+
+
+}
+
+.green-snackbar {
+  background: rgb(65, 252, 134) !important;
+  color: white;
+ margin-top:90px !important ;
+}
+.green-snackbar button {
+
+  color: var(--main-color) !important;
+  border: none;
+}
+
+
+
+
+
+

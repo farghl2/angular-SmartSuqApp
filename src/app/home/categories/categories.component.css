@@ -1,0 +1,70 @@
+ .category {
+    width: 100%;
+    margin: 0 auto 10px auto;
+    padding: 15px;
+    /* background-color:#f9f5c8; */
+    background-color:var(--second-color);
+    /* background-color: #f9f5cf; */
+    border-radius: 10px;
+    z-index: -10;
+ }
+
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+ul li div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+    cursor: pointer;
+    color: #252525;
+    transition: .3s ease;
+    height: 62px;
+
+
+}
+
+ul li div img {
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    transition: .3s;
+
+}
+
+ul li div:hover img {
+    transform: scale(1.1);
+}
+
+ul li div span {
+
+    /* overflow: hidden; */
+    font-size: .8rem !important;
+    line-height: .9;
+    text-overflow: ellipsis;
+}
+
+.chip-container {
+  display: flex;
+  overflow-x: auto;
+  max-width: 100%;
+  margin-bottom: 0.313rem;
+  padding-bottom: 0.625rem;
+
+}
+
+/* Adjust the width of the chips if needed */
+mat-chip-option {
+  flex: 0 0 auto;
+  margin-right: 8px;
+  background-color: var(--main-color) !important;
+}
+
+

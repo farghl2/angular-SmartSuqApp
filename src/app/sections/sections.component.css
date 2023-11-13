@@ -1,0 +1,54 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+
+
+
+}
+
+
+
+
+
+
+@media (max-width:768px) {
+    ul {
+        margin-bottom: 4.0625rem !important;
+    }
+
+}
+
+
+
+.back {
+
+    position:fixed;
+    right: 1.875rem;
+    top: 28rem;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    background-color: #198754;
+    z-index: 20;
+
+
+}
+
+.row .form-control {
+    padding: .375rem .75rem;
+}
+
+
+.form-control::placeholder  {
+    font-family: FontAwesome;
+  }
+
+  .form-control:focus {
+    box-shadow: none;
+    border-color: var(--main-color);
+  }
+
+
+
