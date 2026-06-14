@@ -1,13 +1,4 @@
 {
-  "targets": {
-    "admin-cart-mange": {
-      "hosting": {
-        "smartsuq": [
-          "admin-cart-mange"
-        ]
-      }
-    }
-  },
   "projects": {
     "default": "admin-cart-mange"
   }
